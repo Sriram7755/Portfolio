@@ -1,0 +1,53 @@
+
+.certificates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin: 80px 170px;
+}
+
+.certificates h1 {
+  font-size: 60px;
+  font-weight: 600;
+  position: relative;
+}
+
+.certificates-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cert-btn {
+  background-color: #ff00ff; /* You can change this color */
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.cert-btn:hover {
+  background-color: #e600e6;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .certificates {
+    margin: 50px 40px;
+  }
+
+  .certificates h1 {
+    font-size: 40px;
+  }
+
+  .cert-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
+}

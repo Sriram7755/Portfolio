@@ -1,127 +1,287 @@
-.mywork {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 80px;
-    margin: 80px 170px;
+/* ============================= */
+/* MAIN SECTION */
+/* ============================= */
+
+.mywork{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:80px;
+margin:80px 170px;
 }
 
-.mywork-title {
-    position: relative;
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
+.mywork-title{
+position:relative;
 }
 
-.mywork-title h1 {
-    padding: 0px 30px;
-    font-size: 80px;
-    font-weight: 600;
+.mywork-title h1{
+padding:0 30px;
+font-size:80px;
+font-weight:600;
 }
 
-.mywork-title img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
+.mywork-title img{
+position:absolute;
+bottom:0;
+right:0;
+z-index:-1;
+}
+/* ============================= */
+/* CURRENT PROJECT TITLE */
+/* ============================= */
+
+/* ============================= */
+/* CURRENT PROJECT TITLE */
+/* ============================= */
+
+.current-project-title{
+font-size:26px;
+font-weight:500;
+color:white;
+margin-top:-40px;
+margin-bottom:30px;
+text-align:center;
+letter-spacing:1px;
+opacity:0.9;
+}
+/* ============================= */
+/* CAROUSEL */
+/* ============================= */
+
+.carousel{
+position:relative;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-/* ===== Container for all work items ===== */
-.mywork-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
+/* ============================= */
+/* CONTAINER */
+/* ============================= */
+
+.mywork-container{
+position:relative;
+width:100%;
+height:380px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
 }
 
-/* ===== Each Work Item ===== */
-.mywork-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease;
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.mywork-item{
+position:absolute;
+width:420px;
+border-radius:14px;
+overflow:hidden;
+transition:all 0.6s ease;
+opacity:0;
 }
 
-/* ===== Image Styling ===== */
-.mywork-item img {
-    box-sizing: border-box;
-    width: 419px;
-    height: 280px;
-    border-radius: 10px;
-    transition: 0.3s;
-    cursor: pointer;
+/* ============================= */
+/* IMAGE */
+/* ============================= */
+
+.mywork-item img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:14px;
+cursor:pointer;
+transition:0.4s;
 }
 
-.mywork-item img:hover {
-    transform: scale(1.10);
-    border: 4px solid #ff00ff;
-    border-radius: 10px;
-    transition: 0.3s;
+.mywork-item:hover img{
+transform:scale(1.05);
 }
 
-/* ===== Text Below Image ===== */
-.mywork-name {
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
+/* ============================= */
+/* TITLE OVERLAY */
+/* ============================= */
+
+.mywork-name{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:18px;
+
+font-size:18px;
+font-weight:500;
+color:white;
+
+background:linear-gradient(
+to top,
+rgba(0,0,0,0.85),
+rgba(0,0,0,0)
+);
+
+opacity:0;
+transform:translateY(20px);
+transition:0.4s;
 }
 
-/* ===== Show More Button ===== */
-.mywork-showmore {
-    display: flex;
-    gap: 15px;
-    border-radius: 50px;
-    border: 2px solid white;
-    padding: 30px 60px;
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 80px;
-    transition: 0.6s;
-    cursor: pointer;
+.mywork-item:hover .mywork-name{
+opacity:1;
+transform:translateY(0);
 }
 
-.mywork-showmore:hover {
-    gap: 30px;
-    transition: 0.6s;
+/* ============================= */
+/* CENTER CARD (POP) */
+/* ============================= */
+
+.activeSlide{
+opacity:1;
+z-index:5;
+left:50%;
+transform:translate(-50%,0) scale(1.2);
 }
 
-/* ===== Responsive Styles ===== */
-@media(max-width:768px) {
-    .mywork {
-        gap: 50px;
-        margin: 50px 70px;
-        align-items: start;
-    }
+.activeSlide img{
+box-shadow:0 25px 60px rgba(255,0,255,0.35);
+}
 
-    .mywork-title h1 {
-        padding: 0;
-        font-size: 50px;
-        font-weight: 600;
-    }
+/* ============================= */
+/* LEFT CARD */
+/* ============================= */
 
-    .mywork-title img {
-        width: 130px;
-        margin-right: -20px;
-    }
+.lastSlide{
+opacity:0.6;
+left:50%;
+transform:translate(-160%,0) scale(0.8);
+}
 
-    .mywork-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
+/* ============================= */
+/* RIGHT CARD */
+/* ============================= */
 
-    .mywork-item img {
-        width: 100%;
-        height: auto;
-    }
+.nextSlide{
+opacity:0.6;
+left:50%;
+transform:translate(60%,0) scale(0.8);
+}
 
-    .mywork-name {
-        font-size: 16px;
-        margin-top: 10px;
-    }
+/* ============================= */
+/* NAVIGATION BUTTONS */
+/* ============================= */
 
-    .mywork-showmore {
-        padding: 20px 40px;
-        font-size: 18px;
-        margin: 50px auto;
-        cursor: pointer;
-    }
+.nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:transparent;
+border:none;
+font-size:42px;
+color:white;
+cursor:pointer;
+z-index:10;
+transition:0.3s;
+}
+
+.nav:hover{
+transform:translateY(-50%) scale(1.2);
+}
+
+.left{
+left:-60px;
+}
+
+.right{
+right:-60px;
+}
+
+/* ============================= */
+/* SHOW MORE BUTTON */
+/* ============================= */
+
+.mywork-showmore{
+display:flex;
+align-items:center;
+gap:15px;
+
+border-radius:50px;
+border:2px solid white;
+
+padding:25px 55px;
+
+font-size:22px;
+font-weight:500;
+
+margin-bottom:80px;
+
+transition:0.4s;
+cursor:pointer;
+}
+
+.mywork-showmore:hover{
+gap:30px;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:768px){
+
+.mywork{
+gap:50px;
+margin:50px 40px;
+align-items:start;
+}
+
+.mywork-title h1{
+font-size:50px;
+}
+
+.mywork-title img{
+width:130px;
+}
+
+.mywork-container{
+height:300px;
+}
+
+.mywork-item{
+width:260px;
+}
+
+.mywork-item img{
+height:180px;
+}
+
+.activeSlide{
+transform:translate(-50%,0) scale(1.05);
+}
+
+.lastSlide{
+transform:translate(-140%,0) scale(0.75);
+}
+
+.nextSlide{
+transform:translate(40%,0) scale(0.75);
+}
+
+.left{
+left:-20px;
+}
+
+.right{
+right:-20px;
+}
+
+.mywork-showmore{
+padding:20px 35px;
+font-size:18px;
+}
+
 }
